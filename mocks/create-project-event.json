@@ -1,0 +1,8 @@
+{
+    "body":"{\"title\":\"test\",\"mgmtId\":\"karl\",\"projectStatus\":\"Pending\",\"content\":\"hello world\"}",
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "USER-SUB-1234"
+      }
+    }
+  }
