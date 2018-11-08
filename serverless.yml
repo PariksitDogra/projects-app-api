@@ -75,6 +75,17 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+  getProject:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: getProject.main
+    events:
+      - http:
+          path: projects/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
   list:
     # Defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
@@ -129,5 +140,16 @@ functions:
       - http:
           path: projects/plist
           method: post
+          cors: true
+          authorizer: aws_iam
+  updateProject:
+    # Defines an HTTP API endpoint that calls the main function in update.js
+    # - path: url path is /notes/{id}
+    # - method: PUT request
+    handler: updateProject.main
+    events:
+      - http:
+          path: projects/{id}
+          method: put
           cors: true
           authorizer: aws_iam
