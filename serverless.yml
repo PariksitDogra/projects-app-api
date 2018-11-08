@@ -86,6 +86,7 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+  
   returnProjectUsers:
     # Defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
@@ -117,5 +118,16 @@ functions:
       - http:
           path: users/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+  returnProjects:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: returnProjects.main
+    events:
+      - http:
+          path: projects/plist
+          method: post
           cors: true
           authorizer: aws_iam

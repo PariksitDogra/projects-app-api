@@ -1,5 +1,6 @@
-import * as dynamoDbLib from "../cloudapp-dev/libs/dynamodb-lib";
-import { success, failure } from "../cloudapp-dev/libs/response-lib";
+import * as dynamoDbLib from "../projects-app-api/libs/dynamodb-lib";
+import { success, failure } from "../projects-app-api/libs/response-lib";
+import uuid from "uuid";
 
 export async function main(event, context) {
   const data = JSON.parse(event.body);
@@ -7,12 +8,13 @@ export async function main(event, context) {
   const params = {
     TableName: "projects",
     Item: {
-      projectId: data.title,
+      projectId: uuid.v1(),
+      title: data.title,
       mgmtId: data.mgmtId, 
       content: data.content,
       createdAt: Date.now(),
-      projectStatus: data.projectStatus
-      
+      projectStatus: data.projectStatus,
+      developers:[]
     }
   };
 

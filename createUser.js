@@ -1,5 +1,5 @@
-import * as dynamoDbLib from "../cloudapp-dev/libs/dynamodb-lib";
-import { success, failure } from "../cloudapp-dev/libs/response-lib";
+import * as dynamoDbLib from "../projects-app-api/libs/dynamodb-lib";
+import { success, failure } from "../projects-app-api/libs/response-lib";
 
 export async function main(event, context) {
   const data = JSON.parse(event.body);
