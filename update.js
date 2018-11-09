@@ -14,9 +14,12 @@ export async function main(event, context) {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET content = :content",
+    UpdateExpression: "SET content = :content, emailId = :emailId, permRole = :permRole",
     ExpressionAttributeValues: {
-      ":content": data.content || null
+      ":content": data.content || null,
+      ":emailId": data.emailId || null,
+      ":permRole": data.permRole || null
+
     },
     // 'ReturnValues' specifies if and how to return the item's attributes,
     // where ALL_NEW returns all attributes of the item after the update; you

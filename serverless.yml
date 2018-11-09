@@ -47,15 +47,6 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
-  create:
-    handler: create.main
-    events:
-      - http:
-          path: users
-          method: post
-          cors: true
-          authorizer: aws_iam
-
   createProject:
     handler: createProject.main
     events:
@@ -142,6 +133,17 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  returnUsers:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # - path: url path is /notes
+    # - method: GET request
+    handler: returnUsers.main
+    events:
+      - http:
+          path: users/view
+          method: post
+          cors: true
+          authorizer: aws_iam
   updateProject:
     # Defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is /notes/{id}
@@ -151,5 +153,16 @@ functions:
       - http:
           path: projects/{id}
           method: put
+          cors: true
+          authorizer: aws_iam
+  removeProject:
+    # Defines an HTTP API endpoint that calls the main function in delete.js
+    # - path: url path is /notes/{id}
+    # - method: DELETE request
+    handler: removeProject.main
+    events:
+      - http:
+          path: projects/{id}
+          method: delete
           cors: true
           authorizer: aws_iam

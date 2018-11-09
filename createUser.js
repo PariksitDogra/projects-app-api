@@ -8,9 +8,9 @@ export async function main(event, context) {
     TableName: "users",
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      projectId: ["placeholder1", "placeholder2"], 
+      emailId: data.emailId,
+      permRole: data.permRole,
       content: data.content,
-      
     }
   };
 
@@ -18,6 +18,7 @@ export async function main(event, context) {
     await dynamoDbLib.call("put", params);
     return success(params.Item);
   } catch (e) {
+    console.log(e)
     return failure({ status: false });
   }
 }
