@@ -23,16 +23,6 @@ export async function main(event, context) {
     // can inspect 'result' below to see how it works with different settings
     
     ReturnValues: "ALL_NEW"
-
-    /*Item: {
-      projectId: uuid.v1(),
-      title: data.title,
-      mgmtId: data.mgmtId, 
-      content: data.content,
-      createdAt: Date.now(),
-      projectStatus: data.projectStatus,
-      developers:[]
-    }*/
   };
 
   try {
